@@ -5,10 +5,10 @@ public class User {
     int budget;
 
     /**
-     * @param firstName
-     * @param lastName
-     * @param emailAddress
-     * @param budget
+     * @param firstName First name of user
+     * @param lastName Last name of user
+     * @param emailAddress Email address o User
+     * @param budget Available Budget of User
      */
     User(String firstName, String lastName, String emailAddress, int budget){
         this.firstName = firstName;

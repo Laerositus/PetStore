@@ -1,4 +1,3 @@
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
@@ -13,6 +12,9 @@ public class PetTest {
 
     User testUser = new User (firstName, lastName, email, budget);
 
+    /**
+     * Tests the constructor for a cat without an owner
+     */
     @Test
     void testCatContructorWithoutOwner(){
         // Arrange
@@ -30,6 +32,9 @@ public class PetTest {
         assertEquals(testPet.type, AnimalType.Cat);
     }
 
+    /**
+     * Tests the pet constructor for a dog with an owner
+     */
     @Test
     void testDogContructorWithOwner(){
         // Arrange
@@ -48,6 +53,10 @@ public class PetTest {
         assertEquals(testPet.owner, testUser);
         assertEquals(testPet.rating, 5);
     }
+
+    /**
+     *  Tests setting the price for a dcat
+     */
     @Test
     void testSetPriceCat() {
         String name = "test";
@@ -62,6 +71,9 @@ public class PetTest {
         assertEquals(testPet.price, 3); // Cat's price should be 1 * age so 3
     }
 
+    /**
+     * Tests setting the price for a dog
+     */
     @Test
     void testSetPriceDog(){
         String name = "test";

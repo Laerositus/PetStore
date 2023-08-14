@@ -9,12 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PetStoreTest {
 
-    @BeforeAll
-    static void setup(){
-        ArrayList<User> users = new ArrayList<>();
-        ArrayList<Pet> pets = new ArrayList<>();
-    }
-
+    /**
+     * Tests for user list creation
+     */
     @Test
     void testCreateUsers() {
 
@@ -24,6 +21,10 @@ public class PetStoreTest {
         // Assert
         assertFalse(users.isEmpty());
     }
+
+    /**
+     * Tests for pet list creation
+     */
     @Test
     void testCreatePets() {
         // Arrange
@@ -34,6 +35,10 @@ public class PetStoreTest {
         // Assert
         assertFalse(pets.isEmpty());
     }
+
+    /**
+     * Tests if at least one pet has been bought
+     */
     @Test
     void testBuy() {
         // Arrange

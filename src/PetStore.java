@@ -17,8 +17,9 @@ public class PetStore {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        boolean loop = true;
 
-        while(true){
+        while(loop){
             System.out.println("What would you like to do?");
             System.out.println("Create a list of users - 'create-users'");
             System.out.println("Create a list of pets - 'create-pets'");
@@ -26,47 +27,46 @@ public class PetStore {
             System.out.println("Show the list of pets - 'list-pets'");
             System.out.println("Let users buy pets - 'buy");
             System.out.println("Show the history - 'history'");
+            System.out.println("Exit application - 'exit'");
 
             String input = scanner.next();
-            switch(input){
-                case "create-users":
+            switch (input) {
+                case "create-users" -> {
                     users = createUsers();
                     listUsers();
-                    break;
-                case "create-pets":
+                }
+                case "create-pets" -> {
                     pets = createPets();
                     listPets();
-                    break;
-                case "list-users":
-                    listUsers();
-                    break;
-                case "list-pets":
-                    listPets();
-                    break;
-                case "buy":
-                    buy(users, pets);
-                    break;
-                case "history":
-                    if(history.isEmpty()) {
+                }
+                case "list-users" -> listUsers();
+                case "list-pets" -> listPets();
+                case "buy" -> buy(users, pets);
+                case "history" -> {
+                    if (history.isEmpty()) {
                         System.out.println("No history yet");
                         break;
                     }
                     System.out.println(history);
+                }
+                case "exit" -> {
+                    loop = false;
                     break;
-                default:
-                    System.out.println("invalid input");
-                    break;
+                }
+                default -> System.out.println("invalid input");
             }
         }
+
+        System.out.println("Thanks for using the Pet Store! \nGoodbye!");
     }
 
     /**
      * Tries to buy a pet for every user
-     * @param users
-     * @param pets
+     * @param users Users that will buy pets
+     * @param pets Pets that can be bought
      */
     public static void buy(ArrayList<User> users, ArrayList<Pet> pets){
-        history += String.format("Execution date: %s \n", new Date().toString());
+        history += String.format("Execution date: %s \n", new Date());
         if (users.isEmpty() || users == null) {
             System.out.println("No current users");
             history += "No users, invalid buy operation";
@@ -133,7 +133,7 @@ public class PetStore {
 
         System.out.println("Users:");
         users.forEach(user -> {
-            System.out.println(user.toString());
+            System.out.println(user);
         });
     }
 
